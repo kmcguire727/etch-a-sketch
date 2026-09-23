@@ -1,0 +1,102 @@
+/* Select CSS content (colors, font preferences) taken from Simple CSS defaults */
+
+/* Global variables. */
+:root {
+  /* Set sans-serif & mono fonts */
+  --sans-font: -apple-system, BlinkMacSystemFont, "Avenir Next", Avenir,
+    "Nimbus Sans L", Roboto, "Noto Sans", "Segoe UI", Arial, Helvetica,
+    "Helvetica Neue", sans-serif;
+  --serif-font: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  --mono-font: Consolas, Menlo, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
+  /* --standard-border-radius: 5px;
+  --border-width: 1px; */
+
+  /* Default (light) theme */
+  --bg: #fff;
+  --accent-bg: #f5f7ff;
+  --text: #212121;
+  --text-light: #585858;
+  --border: #898EA4;
+  --accent: #0d47a1;
+  --accent-hover: #1266e2;
+  --accent-text: var(--bg);
+  --code: #d81b60;
+  --preformatted: #444;
+  --marked: #ffdd33;
+  --disabled: #efefef;
+}
+
+/* Overrides apply when Dark Mode is active */
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --bg: #212121;
+    --accent-bg: #2b2b2b;
+    --text: #dcdcdc;
+    --text-light: #ababab;
+    --accent: #ffb300;
+    --accent-hover: #ffe099;
+    --accent-text: var(--bg);
+    --code: #f06292;
+    --preformatted: #ccc;
+    --disabled: #111;
+  }
+  
+  /* Add transparency so light media isn't glaring in dark mode */
+  img,
+  video {
+    opacity: 0.8;
+  }
+}
+
+/* Enable Border-box */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  /* Set the font globally */
+  font-family: var(--sans-font);
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  margin: 16px;
+}
+
+button {
+  display: flex;
+  justify-self: center;
+  cursor: pointer;
+  padding: 16px;
+  margin: 16px;
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: 8px;
+  background: var(--accent);
+  border: 1px solid var(--accent-hover);
+  color: var(--accent-text);
+
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-self: center;
+  border: 16px solid var(--code);
+  width: 512px;
+  height: 512px;
+}
+
+.grid-square {
+  background-color: var(--accent-bg);
+  border: 1px solid var(--bg);
+  height: 16px;
+  width: 16px;
+
+  &.hover {
+    background-color: var(--text-light);
+  }
+}
